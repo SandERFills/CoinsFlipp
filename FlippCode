@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+
+namespace DailyWorks
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try {
+                #region Подброс монеты
+                Random rand = new Random();
+                int value = rand.Next(), heads = 0, tails = 0;
+                bool IsCorrectInput = true;
+                
+                while (IsCorrectInput)
+                {
+                    value = rand.Next(0,2);
+                float halfDigit = value / 2f;
+                if (halfDigit>=.5)
+                {
+                    heads++;
+                        
+                    }
+                else
+                {
+                    tails++;
+                    }
+                    Console.WriteLine("орёл: "+heads+"решка:"+ tails+"\n"+"Нажмите ENTER чтобы подросить монетку");
+                    Console.ReadLine();
+                }
+
+
+                #endregion
+            }
+            catch (FormatException) { Console.WriteLine("Ошибка Формата"); }
+            catch (Exception) { Console.WriteLine("Ошибка"); }
+           
+        }
+    }
+}
